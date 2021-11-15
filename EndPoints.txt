@@ -2,7 +2,8 @@ EndPoint you can try in postman
 
 Note : You need to Login every 600s, as the token expires every 600 seconds.
 
-POST : http://localhost:3000/login
+// For Authentication
+POST : http://localhost:3000/login 
 {
 	"username" : "qwedwefreg",
 	"password" : "qwedwefreg"
@@ -10,16 +11,19 @@ POST : http://localhost:3000/login
 
 header = {Contant-Type : application/json}
 -------------------------------------------------------------------------------------------------------------
-GET : http://localhost:3000/success
+// For login
+GET : http://localhost:3000/success  
 
 header = {Bearer <Token received from http://localhost:3000/login>}
 
 -------------------------------------------------------------------------------------------------------------
+// To view the id and posts
 GET : http://localhost:3000/students?page=1&pageSize=10
 
 header = {Bearer <Token received from http://localhost:3000/login>}
 
 -------------------------------------------------------------------------------------------------------------
+// To modify the object
 PUT : http://localhost:3000/admin/33
 
 header = {Bearer <Token received from http://localhost:3000/login>}
@@ -31,11 +35,13 @@ requestBody :
     }
 
 -------------------------------------------------------------------------------------------------------------
+// To delete the object
 DELETE : http://localhost:3000/admin/1
 
 header = {Bearer <Token received from http://localhost:3000/login>}
 
 -------------------------------------------------------------------------------------------------------------
+// For permanant token which does not expire
 POST : http://localhost:3000/token
 
 requestBody : 
@@ -44,7 +50,7 @@ requestBody :
     }
 -------------------------------------------------------------------------------------------------------------
 
-TO logout
+// To logout
 
 DELETE : http://localhost:3000/logout
 
