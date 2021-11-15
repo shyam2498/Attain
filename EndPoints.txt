@@ -1,0 +1,54 @@
+EndPoint you can try in postman
+
+Note : You need to Login every 600s, as the token expires every 600 seconds.
+
+POST : http://localhost:3000/login
+{
+	"username" : "qwedwefreg",
+	"password" : "qwedwefreg"
+}
+
+header = {Contant-Type : application/json}
+-------------------------------------------------------------------------------------------------------------
+GET : http://localhost:3000/success
+
+header = {Bearer <Token received from http://localhost:3000/login>}
+
+-------------------------------------------------------------------------------------------------------------
+GET : http://localhost:3000/students?page=1&pageSize=10
+
+header = {Bearer <Token received from http://localhost:3000/login>}
+
+-------------------------------------------------------------------------------------------------------------
+PUT : http://localhost:3000/admin/33
+
+header = {Bearer <Token received from http://localhost:3000/login>}
+
+requestBody : 
+    {
+        "id": "313",
+        "post": "you are in post 33 is updated"
+    }
+
+-------------------------------------------------------------------------------------------------------------
+DELETE : http://localhost:3000/admin/1
+
+header = {Bearer <Token received from http://localhost:3000/login>}
+
+-------------------------------------------------------------------------------------------------------------
+POST : http://localhost:3000/token
+
+requestBody : 
+    {
+        "token": "<Refreshed Token you get from  http://localhost:3000/login which has no expiry >"
+    }
+-------------------------------------------------------------------------------------------------------------
+
+TO logout
+
+DELETE : http://localhost:3000/logout
+
+requestBody : 
+    {
+        "token": "<Refreshed Token you get from  http://localhost:3000/login which has no expiry >"
+    }
